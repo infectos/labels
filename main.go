@@ -15,6 +15,7 @@ var page string
 
 func main() {
 	http.HandleFunc("/", serveHello)
+	http.HandleFunc("/bye", serveBye)
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -30,4 +31,8 @@ func main() {
 
 func serveHello(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, page)
+}
+
+func serveBye(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "bye")
 }
