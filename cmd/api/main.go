@@ -53,3 +53,6 @@ func respondWithJSON(w http.ResponseWriter, code int, payload interface{}) {
 	w.WriteHeader(code)
 	w.Write(response)
 }
+
+// Exported Handler that Vercel requires
+var Handler = http.HandlerFunc(greet)
